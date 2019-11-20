@@ -99,14 +99,6 @@ class iDocs_Symposiums_ACF {
 			'hide_on_screen' => $field_group_hide_elements,
 		];
 
-		$e = new Exception;
-		$trace = $e->getTraceAsString();
-		error_log( print_r( array(
-			'method' => __METHOD__,
-			'field_group' => $field_group,
-			//'backtrace' => $trace,
-		), true ) );
-
 		// Now add the group.
 		acf_add_local_field_group( $field_group );
 
@@ -169,7 +161,7 @@ class iDocs_Symposiums_ACF {
 		$field = [
 			'key' => 'field_idocs_sym_link',
 			'label' => __( 'Link', 'idocs-symposiums' ),
-			'name' => 'isbn',
+			'name' => 'link',
 			'type' => 'url',
 			'instructions' => '',
 			'default_value' => '',

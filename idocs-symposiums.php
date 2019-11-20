@@ -136,6 +136,9 @@ class iDocs_Symposiums {
 	 */
 	public function include_files() {
 
+		// Include functions.
+		include IDOCS_SYMPOSIUMS_PATH . 'includes/idocs-symposiums-functions.php';
+
 		// Include CPT class.
 		include IDOCS_SYMPOSIUMS_PATH . 'includes/idocs-symposiums-cpt.php';
 
