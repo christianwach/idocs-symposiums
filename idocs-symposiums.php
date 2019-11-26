@@ -59,6 +59,15 @@ class iDocs_Symposiums {
 	 */
 	public $acf;
 
+	/**
+	 * "Single Symposium" Shortcode object.
+	 *
+	 * @since 0.1
+	 * @access public
+	 * @var object $shortcode The "Single Symposium" Shortcode object.
+	 */
+	public $shortcode_single;
+
 
 
 	/**
@@ -145,6 +154,9 @@ class iDocs_Symposiums {
 		// Include ACF class.
 		include IDOCS_SYMPOSIUMS_PATH . 'includes/idocs-symposiums-acf.php';
 
+		// Include Shortcode class.
+		include IDOCS_SYMPOSIUMS_PATH . 'includes/idocs-symposiums-shortcode-single.php';
+
 	}
 
 
@@ -161,6 +173,9 @@ class iDocs_Symposiums {
 
 		// Init ACF object.
 		$this->acf = new iDocs_Symposiums_ACF( $this );
+
+		// Init Shortcode object.
+		$this->shortcode_single = new iDocs_Symposium_Shortcode_Single( $this );
 
 	}
 

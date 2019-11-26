@@ -11,6 +11,53 @@
 
 
 /**
+ * Show a Symposium.
+ *
+ * @since 0.1
+ *
+ * @param bool $show_title Prepends the title when true, otherwise hides title.
+ * @param bool $show_meta Appends the metadata when true, otherwise hides metadata.
+ */
+function idocs_the_symposium( $show_title = true, $show_meta = true ) {
+	echo idocs_get_the_symposium( $show_title, $show_meta );
+}
+
+
+
+/**
+ * Build a Symposium.
+ *
+ * @since 0.1
+ *
+ * @param bool $show_title Prepends the title when true, otherwise hides title.
+ * @param bool $show_meta Appends the metadata when true, otherwise hides metadata.
+ * @return str $markup The built Symposium.
+ */
+function idocs_get_the_symposium( $show_title = true, $show_meta = true ) {
+
+	// Init return.
+	$markup = '';
+
+	// Maybe add title.
+	if ( $show_title === true ) {
+		$markup .= '<h2 class="idocs-symposium-title">' . apply_filters( 'the_title', get_the_title(), get_the_ID() ) . '</h2>';
+	}
+
+	// Add content.
+	$markup .= apply_filters( 'the_content', get_the_content() );
+
+	// Maybe add metadata.
+	if ( $show_meta === true ) {
+		$markup .= idocs_get_the_symposium_meta();
+	}
+
+	// --<
+	return $markup;
+
+}
+
+
+/**
  * Show Symposium metadata.
  *
  * @since 0.1
