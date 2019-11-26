@@ -253,14 +253,6 @@ function idocs_get_the_symposium_file_markup( $file ) {
 	$caption = $file['caption'];
 	$icon = $file['icon'];
 
-	$e = new Exception;
-	$trace = $e->getTraceAsString();
-	error_log( print_r( array(
-		'method' => __METHOD__,
-		'file' => $file,
-		//'backtrace' => $trace,
-	), true ) );
-
 	$text = '<img src="' . esc_attr( $icon ) . '" style="width: 1em;" alt="' . esc_attr__( 'File icon', 'idocs-symposiums' ) . '" /> <span>' . esc_html( $title ) . '</span>';
 
 	// Wrap in anchor tag.
@@ -303,14 +295,6 @@ function idocs_get_the_symposium_taxonomy() {
 	if ( empty( $category ) ) {
 		return $markup;
 	}
-
-	$e = new Exception;
-	$trace = $e->getTraceAsString();
-	error_log( print_r( array(
-		'method' => __METHOD__,
-		'category' => $category,
-		//'backtrace' => $trace,
-	), true ) );
 
 	// Get the URL of this category.
 	$category_link = get_category_link( $category->term_id );
