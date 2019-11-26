@@ -119,6 +119,18 @@ class iDocs_Symposiums_ACF {
 		// Define a "Link" field.
 		$this->field_link_add();
 
+		// Define a "Speaker List" field.
+		$this->field_link_speakers_add();
+
+		// Define a "Category" field.
+		$this->field_category_add();
+
+		// Define a "Programme Upload" field.
+		$this->field_upload_programme_add();
+
+		// Define a "Call for Participation Upload" field.
+		$this->field_upload_participation_add();
+
 	}
 
 
@@ -160,12 +172,125 @@ class iDocs_Symposiums_ACF {
 		// Define field.
 		$field = [
 			'key' => 'field_idocs_sym_link',
-			'label' => __( 'Link', 'idocs-symposiums' ),
+			'label' => __( 'Link to Symposium Microsite', 'idocs-symposiums' ),
 			'name' => 'link',
 			'type' => 'url',
 			'instructions' => '',
 			'default_value' => '',
 			'placeholder' => '',
+			'parent' => 'group_idocs_sym_data',
+		];
+
+		// Now add field.
+		acf_add_local_field( $field );
+
+	}
+
+
+
+	/**
+	 * Add "Speaker List" Field.
+	 *
+	 * @since 0.1
+	 */
+	public function field_link_speakers_add() {
+
+		// Define field.
+		$field = [
+			'key' => 'field_idocs_sym_link_speakers',
+			'label' => __( 'Link to Speaker List', 'idocs-symposiums' ),
+			'name' => 'link_speakers',
+			'type' => 'url',
+			'instructions' => '',
+			'default_value' => '',
+			'placeholder' => '',
+			'parent' => 'group_idocs_sym_data',
+		];
+
+		// Now add field.
+		acf_add_local_field( $field );
+
+	}
+
+
+
+	/**
+	 * Add "Category" Field.
+	 *
+	 * @since 0.1
+	 */
+	public function field_category_add() {
+
+		// Define field.
+		$field = [
+			'key' => 'field_idocs_sym_category',
+			'label' => __( 'Related Posts Category', 'idocs-symposiums' ),
+			'name' => 'category',
+			'type' => 'taxonomy',
+			'field_type' => 'select',
+			'allow_null' => 0,
+			'add_term' => 0,
+			'save_terms' => 0,
+			'load_terms' => 0,
+			'return_format' => 'object',
+			'multiple' => 0,
+			'instructions' => '',
+			'default_value' => '',
+			'placeholder' => '',
+			'parent' => 'group_idocs_sym_data',
+		];
+
+		// Now add field.
+		acf_add_local_field( $field );
+
+	}
+
+
+
+	/**
+	 * Add "Programme Document" Field.
+	 *
+	 * @since 0.1
+	 */
+	public function field_upload_programme_add() {
+
+		// Define field.
+		$field = [
+			'key' => 'field_idocs_sym_upload_programme',
+			'label' => __( 'Programme Document', 'idocs-symposiums' ),
+			'name' => 'upload_programme',
+			'type' => 'file',
+			'return_format' => 'array',
+			'library' => 'all',
+			'min_size' => '',
+			'max_size' => '',
+			'parent' => 'group_idocs_sym_data',
+		];
+
+		// Now add field.
+		acf_add_local_field( $field );
+
+	}
+
+
+
+	/**
+	 * Add "Call for Participation" Field.
+	 *
+	 * @since 0.1
+	 */
+	public function field_upload_participation_add() {
+
+		// Define field.
+		$field = [
+			'key' => 'field_idocs_sym_upload_participation',
+			'label' => __( 'Call for Participation Document', 'idocs-symposiums' ),
+			'name' => 'upload_participation',
+			'type' => 'file',
+			'return_format' => 'array',
+			'library' => 'all',
+			'min_size' => '',
+			'max_size' => '',
 			'parent' => 'group_idocs_sym_data',
 		];
 
