@@ -119,7 +119,7 @@ function idocs_get_the_symposium_meta() {
 	}
 
 	// Build rendered list.
-	$markup = '<ul><li>' . implode( '</li><li>', $list ) . '</li></ul>';
+	$markup = '<ul class="idocs-symposium-meta"><li>' . implode( '</li><li>', $list ) . '</li></ul>';
 
 	// --<
 	return $markup;

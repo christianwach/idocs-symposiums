@@ -90,8 +90,12 @@ class iDocs_Symposiums_CPT {
 
 	}
 
+
+
 	/**
-	 * Actions to perform on plugin activation.
+	 * Remove Uncode theme elements.
+	 *
+	 * Not used.
 	 *
 	 * @since 0.1
 	 */
